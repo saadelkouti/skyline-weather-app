@@ -48,8 +48,8 @@ src/
 2. The API key is already wired up in `.env` at the project root:
 
    ```
-<<<<<<< HEAD
    VITE_OPENWEATHER_API_KEY= your_api_key
+   ```
 
 
    To use your own key instead, replace the value in `.env` (see `.env.example`). **Restart the dev server after changing `.env`** — Vite only reads env files on startup.
