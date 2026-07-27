@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-body antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  @apply bg-cerulean/30;
+}
+
+/* Custom scrollbar, kept quiet */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-cerulean/30 rounded-full;
+}
+
+@layer components {
+  .glass-panel {
+    @apply relative rounded-3xl border border-white/15 bg-white/10 backdrop-blur-xl shadow-glass;
+  }
+
+  .glass-panel-light {
+    @apply relative rounded-3xl border border-midnight/5 bg-white/60 backdrop-blur-xl shadow-glass-light;
+  }
+
+  .instrument-label {
+    @apply font-mono text-[11px] uppercase tracking-[0.18em] text-slate-instrument;
+  }
+
+  .instrument-value {
+    @apply font-mono tabular-nums;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-cerulean px-5 py-3 font-body font-semibold text-white shadow-lg shadow-cerulean/25 transition-all hover:bg-cerulean-soft active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-cerulean focus-visible:ring-offset-2 focus-visible:ring-offset-transparent;
+  }
+}
+
+/* Respect reduced-motion preferences globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
